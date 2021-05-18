@@ -1,5 +1,9 @@
 let myLibrary = [{title: "first book", "pages": 45}, {title: "second book", "pages": 12}, {title: "third book", "pages": 102}];
 
+let mainContainer = document.querySelector('#mainContainer');
+
+let book_shelf = document.getElementById('book_shelf');
+
 function Book(title, pages) {
   this.title = title;
   this.pages = pages;
@@ -11,34 +15,35 @@ function addBookToLibrary(title, pages) {
 
   myLibrary.push(book);
 
+  add_book(myLibrary[myLibrary.length-1]);
 }
 
-let mainContainer = document.querySelector('#mainContainer');
-function display_book(array) {
+function add_book(book) {
+
+  let bookContainer = document.createElement('div');
+  bookContainer.setAttribute('class', 'bookContainer');
+  book_shelf.appendChild(bookContainer);
+
+  let bookTitle = document.createElement('p');
+  bookTitle.textContent = book.title;
+
+  let bookPages = document.createElement('p');
+  bookPages.textContent = book.pages;
+
+  bookContainer.appendChild(bookTitle);
+  bookContainer.appendChild(bookPages);
+}
+
+function display_initial_books(array) {
 
   for (let a=0; a < array.length; a++) {
-
-    let bookContainer = document.createElement('div');
-    bookContainer.setAttribute('class', 'bookContainer');
-    mainContainer.appendChild(bookContainer);
-
-    let bookTitle = document.createElement('p');
-    bookTitle.textContent = array[a].title;
-
-    let bookPages = document.createElement('p');
-    bookPages.textContent = array[a].pages;
-
-    bookContainer.appendChild(bookTitle);
-    bookContainer.appendChild(bookPages);
+    add_book(array[a])
   }
-
-  return mainContainer;
 }
 
 function createBookButton() {
-  let add_button = document.createElement('BUTTON');
+  let add_button = document.getElementById('display_form');
   add_button.setAttribute('class', 'create-book-btn');
-  add_button.textContent = 'ADD BUTTON';
   add_button.addEventListener('click', displayForm, false);
 
   mainContainer.appendChild(add_button);
@@ -69,7 +74,7 @@ function addBookForm() {
   page_input.setAttribute('id', 'pages');
 
   let submit_input = document.createElement('INPUT');
-  submit_input.setAttribute('type', 'submit');
+  submit_input.setAttribute('type', 'button');
   submit_input.setAttribute('value', 'Add Book');
   submit_input.setAttribute('onclick', "addBookToLibrary(document.getElementById('title').value, document.getElementById('pages').value)");
   
@@ -82,5 +87,4 @@ function addBookForm() {
 
 createBookButton();
 addBookForm();
-// addBookToLibrary();
-display_book(myLibrary);
+display_initial_books(myLibrary);
