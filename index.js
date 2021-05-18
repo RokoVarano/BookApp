@@ -1,11 +1,16 @@
 let myLibrary = [{title: "first book", "pages": 45}, {title: "second book", "pages": 12}, {title: "third book", "pages": 102}];
 
-function Book() {
-  
+function Book(title, pages) {
+  this.title = title;
+  this.pages = pages;
 }
 
-function addBookToLibrary() {
-  
+function addBookToLibrary(title, pages) {
+
+  const book = new Book(title, pages);
+
+  myLibrary.push(book);
+
 }
 
 let mainContainer = document.querySelector('#mainContainer');
@@ -56,14 +61,17 @@ function addBookForm() {
   let title_input = document.createElement('INPUT');
   title_input.setAttribute('type', 'text');
   title_input.setAttribute('name', 'title');
-  
+  title_input.setAttribute('id', 'title');
+
   let page_input = document.createElement('INPUT');
   page_input.setAttribute('type', 'text');
-  page_input.setAttribute('name', 'page');
+  page_input.setAttribute('name', 'pages');
+  page_input.setAttribute('id', 'pages');
 
   let submit_input = document.createElement('INPUT');
   submit_input.setAttribute('type', 'submit');
   submit_input.setAttribute('value', 'Add Book');
+  submit_input.setAttribute('onclick', "addBookToLibrary(document.getElementById('title').value, document.getElementById('pages').value)");
   
   form.appendChild(title_input);
   form.appendChild(page_input);
@@ -74,4 +82,5 @@ function addBookForm() {
 
 createBookButton();
 addBookForm();
+// addBookToLibrary();
 display_book(myLibrary);
