@@ -34,11 +34,23 @@ function createBookButton() {
   let add_button = document.createElement('BUTTON');
   add_button.setAttribute('class', 'create-book-btn');
   add_button.textContent = 'ADD BUTTON';
+  add_button.addEventListener('click', displayForm, false);
+
   mainContainer.appendChild(add_button);
 }
 
+function displayForm() {
+  let form = document.querySelector('#book_form');
+
+  if (form.style.display == 'none') {
+    form.style.display = 'block';
+  } else {
+    form.style.display = 'none';
+  }
+}
+
 function addBookForm() {
-  let form = document.createElement('FORM');
+  let form = document.querySelector('#book_form');
   form.setAttribute('class', 'book_form');
   
   let title_input = document.createElement('INPUT');
