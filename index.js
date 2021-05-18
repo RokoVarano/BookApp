@@ -8,8 +8,8 @@ function addBookToLibrary() {
   
 }
 
+let mainContainer = document.querySelector('#mainContainer');
 function display_book(array) {
-  let mainContainer = document.querySelector('#mainContainer');
 
   for (let a=0; a < array.length; a++) {
 
@@ -30,6 +30,12 @@ function display_book(array) {
   return mainContainer;
 }
 
-console.log(display_book(myLibrary));
+function createBookButton() {
+  let add_button = document.createElement('BUTTON');
+  add_button.setAttribute('class', 'create-book-btn');
+  add_button.textContent = 'ADD BUTTON';
+  mainContainer.appendChild(add_button);
+}
 
+createBookButton();
 display_book(myLibrary);
