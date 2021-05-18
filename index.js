@@ -37,5 +37,29 @@ function createBookButton() {
   mainContainer.appendChild(add_button);
 }
 
+function addBookForm() {
+  let form = document.createElement('FORM');
+  form.setAttribute('class', 'book_form');
+  
+  let title_input = document.createElement('INPUT');
+  title_input.setAttribute('type', 'text');
+  title_input.setAttribute('name', 'title');
+  
+  let page_input = document.createElement('INPUT');
+  page_input.setAttribute('type', 'text');
+  page_input.setAttribute('name', 'page');
+
+  let submit_input = document.createElement('INPUT');
+  submit_input.setAttribute('type', 'submit');
+  submit_input.setAttribute('value', 'Add Book');
+  
+  form.appendChild(title_input);
+  form.appendChild(page_input);
+  form.appendChild(submit_input);
+
+  mainContainer.appendChild(form);
+}
+
 createBookButton();
+addBookForm();
 display_book(myLibrary);
