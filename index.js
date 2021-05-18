@@ -1,7 +1,7 @@
 let myLibrary = [{title: "first book", "pages": 45}, {title: "second book", "pages": 12}, {title: "third book", "pages": 102}];
 
 let mainContainer = document.querySelector('#mainContainer');
-
+let form_container = document.getElementById('form_container');
 let book_shelf = document.getElementById('book_shelf');
 
 function Book(title, pages) {
@@ -46,7 +46,7 @@ function createBookButton() {
   add_button.setAttribute('class', 'create-book-btn');
   add_button.addEventListener('click', displayForm, false);
 
-  mainContainer.appendChild(add_button);
+  form_container.appendChild(add_button);
 }
 
 function displayForm() {
@@ -82,7 +82,7 @@ function addBookForm() {
   form.appendChild(page_input);
   form.appendChild(submit_input);
 
-  mainContainer.appendChild(form);
+  form_container.appendChild(form);
 }
 
 createBookButton();
