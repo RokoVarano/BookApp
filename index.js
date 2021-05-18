@@ -11,7 +11,8 @@ function addBookToLibrary() {
 function display_book(array) {
   let mainContainer = document.querySelector('#mainContainer');
 
-  for (let a=0; a > array.length; a++) {
+  for (let a=0; a < array.length; a++) {
+
     let bookContainer = document.createElement('div');
     bookContainer.setAttribute('class', 'bookContainer');
     mainContainer.appendChild(bookContainer);
@@ -25,10 +26,10 @@ function display_book(array) {
     bookContainer.appendChild(bookTitle);
     bookContainer.appendChild(bookPages);
   }
+
+  return mainContainer;
 }
 
-console.log('JAVASCRIPT!!!');
-console.log(myLibrary);
 console.log(display_book(myLibrary));
 
 display_book(myLibrary);
