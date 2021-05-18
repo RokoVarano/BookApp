@@ -1,10 +1,14 @@
-let myLibrary = [{title: "first book", "pages": 45}, {title: "second book", "pages": 12}, {title: "third book", "pages": 102}];
+let myLibrary = [];
+let bookID = myLibrary.length - 1;
 
 let mainContainer = document.querySelector('#mainContainer');
 let form_container = document.getElementById('form_container');
 let book_shelf = document.getElementById('book_shelf');
 
 function Book(title, pages) {
+  this.id = bookID;
+  bookID++;
+
   this.title = title;
   this.pages = pages;
 }
@@ -22,6 +26,7 @@ function add_book(book) {
 
   let bookContainer = document.createElement('div');
   bookContainer.setAttribute('class', 'bookContainer');
+  bookContainer.setAttribute('id', '')
   book_shelf.appendChild(bookContainer);
 
   let bookTitle = document.createElement('p');
@@ -32,6 +37,11 @@ function add_book(book) {
 
   bookContainer.appendChild(bookTitle);
   bookContainer.appendChild(bookPages);
+
+  let delete_button = document.createElement('button');
+  delete_button.addEventListener('click', function() {deleteBook(bookContainer, book)})
+  delete_button.textContent = 'Delete';
+  bookContainer.appendChild(delete_button);
 }
 
 function display_initial_books(array) {
@@ -83,6 +93,12 @@ function addBookForm() {
   form.appendChild(submit_input);
 
   form_container.appendChild(form);
+}
+
+function deleteBook(bookContainer, book) {
+  console.log('delete');
+  bookContainer.parentNode.removeChild(bookContainer);
+  myLibrary.splice(book.id, 1);
 }
 
 createBookButton();
