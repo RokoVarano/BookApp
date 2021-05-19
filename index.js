@@ -28,10 +28,6 @@ function readBook(readButton, book) {
   book.read = !book.read;
 }
 
-function addBook(book) {
-
-}
-
 function addBookToLibrary() {
   const titleInput = document.querySelector('#title');
   const pageInput = document.querySelector('#pages');
@@ -112,4 +108,3 @@ function addBookForm() {
 createBookButton();
 addBookForm();
 addBookToLibrary();
-displayInitialBooks(myLibrary);
