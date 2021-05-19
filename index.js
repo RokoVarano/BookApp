@@ -13,13 +13,17 @@ function Book(title, pages) {
   this.read = false;
 }
 
-function addBookToLibrary(title, pages) {
+function addBookToLibrary() {
+  
+  const titleInput = document.querySelector('#title');
+  const pageInput = document.querySelector('#pages');
+  const buttonInput = document.querySelector('.button');
 
-  const book = new Book(title, pages);
-
-  myLibrary.push(book);
-
-  add_book(myLibrary[myLibrary.length-1]);
+  buttonInput.addEventListener('click', () => {
+    const book = new Book(titleInput.value, pageInput.value);
+    myLibrary.push(book);
+    add_book(myLibrary[myLibrary.length-1]);
+  });
 }
 
 function add_book(book) {
@@ -92,8 +96,8 @@ function addBookForm() {
 
   let submit_input = document.createElement('INPUT');
   submit_input.setAttribute('type', 'button');
+  submit_input.setAttribute('class', 'button');
   submit_input.setAttribute('value', 'Add Book');
-  submit_input.setAttribute('onclick', "addBookToLibrary(document.getElementById('title').value, document.getElementById('pages').value)");
   
   form.appendChild(title_input);
   form.appendChild(page_input);
@@ -122,4 +126,5 @@ function readBook(read_button, book) {
 
 createBookButton();
 addBookForm();
+addBookToLibrary();
 display_initial_books(myLibrary);
