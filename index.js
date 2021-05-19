@@ -22,11 +22,9 @@ function readBook(readButton, book) {
   if (book.read === false) {
     readButton.style.backgroundColor = 'green';
     }
-  
   if (book.read === true) {
     readButton.style.backgroundColor = 'red';
   }
-  
   book.read = !book.read;
 }
 
@@ -97,12 +95,10 @@ function createBookButton() {
 function addBookForm() {
   const form = document.querySelector('#book_form');
   form.setAttribute('class', 'book_form');
-  
   const titleInput = document.createElement('INPUT');
   titleInput.setAttribute('type', 'text');
   titleInput.setAttribute('name', 'title');
   titleInput.setAttribute('id', 'title');
-
   const pageInput = document.createElement('INPUT');
   pageInput.setAttribute('type', 'number');
   pageInput.setAttribute('name', 'pages');
@@ -116,7 +112,6 @@ function addBookForm() {
   form.appendChild(titleInput);
   form.appendChild(pageInput);
   form.appendChild(submitInput);
-
   formContainer.appendChild(form);
 }
 
