@@ -13,7 +13,7 @@ function Book(title, pages) {
   this.read = false;
 }
 
-function addBook(book) {
+function addBook (book) {
 
   const bookContainer = document.createElement('div');
   bookContainer.setAttribute('class', 'bookContainer');
@@ -30,19 +30,19 @@ function addBook(book) {
   bookContainer.appendChild(bookPages);
 
   const deleteButton = document.createElement('button');
-  deleteButton.addEventListener('click', () => { deleteBook(bookContainer, book) });
+  deleteButton.addEventListener('click', () => { deleteBook(bookContainer, book); });
   deleteButton.textContent = 'Delete';
   bookContainer.appendChild(deleteButton);
 
   const readButton = document.createElement('button');
   book.read = true;
   readBook(readButton, book);
-  readButton.addEventListener('click', () => { readBook(readButton, book) })
+  readButton.addEventListener('click', () => { readBook(readButton, book); })
   readButton.textContent = 'Read';
   bookContainer.appendChild(readButton);
 }
 
-function addBookToLibrary() {
+function addBookToLibrary () {
   
   const titleInput = document.querySelector('#title');
   const pageInput = document.querySelector('#pages');
@@ -55,7 +55,7 @@ function addBookToLibrary() {
   });
 }
 
-function displayInitialBooks(array) {
+function displayInitialBooks (array) {
 
   for (let a=0; a < array.length; a++) {
     addBook(array[a])
@@ -63,7 +63,7 @@ function displayInitialBooks(array) {
 }
 
 
-function displayForm() {
+function displayForm () {
   let form = document.querySelector('#book_form');
 
   if (form.style.display === 'none') {
@@ -73,7 +73,7 @@ function displayForm() {
   }
 }
 
-function createBookButton() {
+function createBookButton () {
   const addButton = document.getElementById('display_form');
   addButton.setAttribute('class', 'create-book-btn');
   addButton.addEventListener('click', displayForm, false);
@@ -81,12 +81,12 @@ function createBookButton() {
   formContainer.appendChild(addButton);
 }
 
-function deleteBook(bookContainer, book) {
+function deleteBook (bookContainer, book) {
   bookContainer.parentNode.removeChild(bookContainer);
   myLibrary.splice(book.id, 1);
 }
 
-function addBookForm() {
+function addBookForm () {
   let form = document.querySelector('#book_form');
   form.setAttribute('class', 'book_form');
   
@@ -112,7 +112,7 @@ function addBookForm() {
   formContainer.appendChild(form);
 }
 
-function readBook(readButton, book) {
+function readBook (readButton, book) {
 
   if (book.read === false) {
     readButton.style.backgroundColor = 'green';
