@@ -87,7 +87,7 @@ function addBookForm() {
   title_input.setAttribute('id', 'title');
 
   let page_input = document.createElement('INPUT');
-  page_input.setAttribute('type', 'text');
+  page_input.setAttribute('type', 'number');
   page_input.setAttribute('name', 'pages');
   page_input.setAttribute('id', 'pages');
 
