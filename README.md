@@ -19,7 +19,7 @@ JavaScript
 - Start the project in a live server
 ### Repo
 
-The repo is available in [this link](https://github.com/RokoVarano/BookApp).
+The repo is available in [this link](https://rokovarano.github.io/BookApp/).
 
 ### Prerequisites
 
