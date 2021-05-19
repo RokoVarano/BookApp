@@ -12,6 +12,11 @@ A 'Read' button will show Red if the book is marked 'not read', and green if mar
 HTML5
 JavaScript
 
+## Getting Started
+
+- Clone the repo locally
+- Open it in your favorite IDE
+- Start the project in a live server
 ### Repo
 
 The repo is available in [this link](https://github.com/RokoVarano/BookApp).
