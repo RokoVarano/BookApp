@@ -21,7 +21,7 @@ function deleteBook(bookContainer, book) {
 function readBook(readButton, book) {
   if (book.read === false) {
     readButton.style.backgroundColor = 'green';
-    }
+  }
   if (book.read === true) {
     readButton.style.backgroundColor = 'red';
   }
@@ -108,7 +108,6 @@ function addBookForm() {
   submitInput.setAttribute('type', 'button');
   submitInput.setAttribute('class', 'button');
   submitInput.setAttribute('value', 'Add Book');
-  
   form.appendChild(titleInput);
   form.appendChild(pageInput);
   form.appendChild(submitInput);
