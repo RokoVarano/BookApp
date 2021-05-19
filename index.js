@@ -14,7 +14,6 @@ function Book(title, pages) {
 }
 
 function addBook(book){
-
   const bookContainer = document.createElement('div');
   bookContainer.setAttribute('class', 'bookContainer');
   bookContainer.setAttribute('id', '');
@@ -43,7 +42,6 @@ function addBook(book){
 }
 
 function addBookToLibrary(){
-  
   const titleInput = document.querySelector('#title');
   const pageInput = document.querySelector('#pages');
   const buttonInput = document.querySelector('.button');
@@ -56,7 +54,6 @@ function addBookToLibrary(){
 }
 
 function displayInitialBooks(array){
-
   for (let a=0; a < array.length; a++) {
     addBook(array[a])
   }
@@ -113,7 +110,6 @@ function addBookForm(){
 }
 
 function readBook(readButton, book){
-
   if (book.read === false) {
     readButton.style.backgroundColor = 'green';
     } 
