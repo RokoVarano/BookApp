@@ -11,6 +11,7 @@ function Book(title, pages) {
 
   this.title = title;
   this.pages = pages;
+  this.read = false;
 }
 
 function addBookToLibrary(title, pages) {
@@ -42,6 +43,13 @@ function add_book(book) {
   delete_button.addEventListener('click', function() {deleteBook(bookContainer, book)})
   delete_button.textContent = 'Delete';
   bookContainer.appendChild(delete_button);
+
+  let read_button = document.createElement('button');
+  book.read = true;
+  readBook(read_button, book);
+  read_button.addEventListener('click', function() {readBook(read_button, book)})
+  read_button.textContent = 'Read';
+  bookContainer.appendChild(read_button);
 }
 
 function display_initial_books(array) {
@@ -96,9 +104,21 @@ function addBookForm() {
 }
 
 function deleteBook(bookContainer, book) {
-  console.log('delete');
   bookContainer.parentNode.removeChild(bookContainer);
   myLibrary.splice(book.id, 1);
+}
+
+function readBook(read_button, book) {
+
+  if (book.read === false) {
+    read_button.style.backgroundColor = 'green';
+    } 
+  
+  if (book.read === true) {
+    read_button.style.backgroundColor = 'red';
+  } 
+
+  book.read = !book.read;
 }
 
 createBookButton();
