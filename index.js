@@ -46,7 +46,7 @@ function addBookToLibrary() {
 
     const bookTitle = document.createElement('p');
     bookTitle.textContent = book.title;
-  
+
     const bookPages = document.createElement('p');
     bookPages.textContent = book.pages;
 
