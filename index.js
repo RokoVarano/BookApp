@@ -29,31 +29,7 @@ function readBook(readButton, book) {
 }
 
 function addBook(book) {
-  const bookContainer = document.createElement('div');
-  bookContainer.setAttribute('class', 'bookContainer');
-  bookContainer.setAttribute('id', '');
-  bookShelf.appendChild(bookContainer);
 
-  const bookTitle = document.createElement('p');
-  bookTitle.textContent = book.title;
-
-  const bookPages = document.createElement('p');
-  bookPages.textContent = book.pages;
-
-  bookContainer.appendChild(bookTitle);
-  bookContainer.appendChild(bookPages);
-
-  const deleteButton = document.createElement('button');
-  deleteButton.addEventListener('click', () => { deleteBook(bookContainer, book); });
-  deleteButton.textContent = 'Delete';
-  bookContainer.appendChild(deleteButton);
-
-  const readButton = document.createElement('button');
-  book.read = true;
-  readBook(readButton, book);
-  readButton.addEventListener('click', () => { readBook(readButton, book); });
-  readButton.textContent = 'Read';
-  bookContainer.appendChild(readButton);
 }
 
 function addBookToLibrary() {
@@ -64,14 +40,33 @@ function addBookToLibrary() {
   buttonInput.addEventListener('click', () => {
     const book = new Book(titleInput.value, pageInput.value);
     myLibrary.push(book);
-    addBook(myLibrary[myLibrary.length - 1]);
+    
+    const bookContainer = document.createElement('div');
+    bookContainer.setAttribute('class', 'bookContainer');
+    bookContainer.setAttribute('id', '');
+    bookShelf.appendChild(bookContainer);
+  
+    const bookTitle = document.createElement('p');
+    bookTitle.textContent = book.title;
+  
+    const bookPages = document.createElement('p');
+    bookPages.textContent = book.pages;
+  
+    bookContainer.appendChild(bookTitle);
+    bookContainer.appendChild(bookPages);
+  
+    const deleteButton = document.createElement('button');
+    deleteButton.addEventListener('click', () => { deleteBook(bookContainer, book); });
+    deleteButton.textContent = 'Delete';
+    bookContainer.appendChild(deleteButton);
+  
+    const readButton = document.createElement('button');
+    book.read = true;
+    readBook(readButton, book);
+    readButton.addEventListener('click', () => { readBook(readButton, book); });
+    readButton.textContent = 'Read';
+    bookContainer.appendChild(readButton);
   });
-}
-
-function displayInitialBooks(array) {
-  for (let a = 0; a < array.length; a + 1) {
-    addBook(array[a]);
-  }
 }
 
 function displayForm() {
