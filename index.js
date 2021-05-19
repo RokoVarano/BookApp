@@ -1,10 +1,10 @@
 let myLibrary = [];
-let bookID = myLibrary.length - 1;
 
 let mainContainer = document.querySelector('#mainContainer');
 let form_container = document.getElementById('form_container');
 let book_shelf = document.getElementById('book_shelf');
 
+let bookID = myLibrary.length - 1;
 function Book(title, pages) {
   this.id = bookID;
   bookID++;
