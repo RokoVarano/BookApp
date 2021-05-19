@@ -6,18 +6,18 @@ const bookShelf = document.getElementById('book_shelf');
 let bookID = myLibrary.length - 1;
 function Book(title, pages) {
   this.id = bookID;
-  bookID++;
+  bookID += 1;
 
   this.title = title;
   this.pages = pages;
   this.read = false;
 }
 
-function add_book(book) {
+function addBook(book) {
 
-  let bookContainer = document.createElement('div');
+  const bookContainer = document.createElement('div');
   bookContainer.setAttribute('class', 'bookContainer');
-  bookContainer.setAttribute('id', '')
+  bookContainer.setAttribute('id', '');
   bookShelf.appendChild(bookContainer);
 
   const bookTitle = document.createElement('p');
@@ -30,16 +30,16 @@ function add_book(book) {
   bookContainer.appendChild(bookPages);
 
   const deleteButton = document.createElement('button');
-  deleteButton.addEventListener('click', function() {deleteBook(bookContainer, book)})
+  deleteButton.addEventListener('click', () => { deleteBook(bookContainer, book) });
   deleteButton.textContent = 'Delete';
   bookContainer.appendChild(deleteButton);
 
-  let read_button = document.createElement('button');
+  const readButton = document.createElement('button');
   book.read = true;
-  readBook(read_button, book);
-  read_button.addEventListener('click', function() {readBook(read_button, book)})
-  read_button.textContent = 'Read';
-  bookContainer.appendChild(read_button);
+  readBook(readButton, book);
+  readButton.addEventListener('click', () => { readBook(readButton, book) })
+  readButton.textContent = 'Read';
+  bookContainer.appendChild(readButton);
 }
 
 function addBookToLibrary() {
@@ -51,14 +51,14 @@ function addBookToLibrary() {
   buttonInput.addEventListener('click', () => {
     const book = new Book(titleInput.value, pageInput.value);
     myLibrary.push(book);
-    add_book(myLibrary[myLibrary.length-1]);
+    addBook(myLibrary[myLibrary.length-1]);
   });
 }
 
 function displayInitialBooks(array) {
 
   for (let a=0; a < array.length; a++) {
-    add_book(array[a])
+    addBook(array[a])
   }
 }
 
@@ -66,7 +66,7 @@ function displayInitialBooks(array) {
 function displayForm() {
   let form = document.querySelector('#book_form');
 
-  if (form.style.display == 'none') {
+  if (form.style.display === 'none') {
     form.style.display = 'block';
   } else {
     form.style.display = 'none';
@@ -81,45 +81,45 @@ function createBookButton() {
   formContainer.appendChild(addButton);
 }
 
-function addBookForm() {
-  let form = document.querySelector('#book_form');
-  form.setAttribute('class', 'book_form');
-  
-  let title_input = document.createElement('INPUT');
-  title_input.setAttribute('type', 'text');
-  title_input.setAttribute('name', 'title');
-  title_input.setAttribute('id', 'title');
-
-  let page_input = document.createElement('INPUT');
-  page_input.setAttribute('type', 'number');
-  page_input.setAttribute('name', 'pages');
-  page_input.setAttribute('id', 'pages');
-
-  let submit_input = document.createElement('INPUT');
-  submit_input.setAttribute('type', 'button');
-  submit_input.setAttribute('class', 'button');
-  submit_input.setAttribute('value', 'Add Book');
-  
-  form.appendChild(title_input);
-  form.appendChild(page_input);
-  form.appendChild(submit_input);
-
-  formContainer.appendChild(form);
-}
-
 function deleteBook(bookContainer, book) {
   bookContainer.parentNode.removeChild(bookContainer);
   myLibrary.splice(book.id, 1);
 }
 
-function readBook(read_button, book) {
+function addBookForm() {
+  let form = document.querySelector('#book_form');
+  form.setAttribute('class', 'book_form');
+  
+  const titleInput = document.createElement('INPUT');
+  titleInput.setAttribute('type', 'text');
+  titleInput.setAttribute('name', 'title');
+  titleInput.setAttribute('id', 'title');
+
+  const pageInput = document.createElement('INPUT');
+  pageInput.setAttribute('type', 'number');
+  pageInput.setAttribute('name', 'pages');
+  pageInput.setAttribute('id', 'pages');
+
+  const submitInput = document.createElement('INPUT');
+  submitInput.setAttribute('type', 'button');
+  submitInput.setAttribute('class', 'button');
+  submitInput.setAttribute('value', 'Add Book');
+  
+  form.appendChild(titleInput);
+  form.appendChild(pageInput);
+  form.appendChild(submitInput);
+
+  formContainer.appendChild(form);
+}
+
+function readBook(readButton, book) {
 
   if (book.read === false) {
-    read_button.style.backgroundColor = 'green';
+    readButton.style.backgroundColor = 'green';
     } 
   
   if (book.read === true) {
-    read_button.style.backgroundColor = 'red';
+    readButton.style.backgroundColor = 'red';
   } 
 
   book.read = !book.read;
