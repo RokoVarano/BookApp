@@ -4,12 +4,13 @@ const formContainer = document.getElementById('form_container');
 const bookShelf = document.getElementById('book_shelf');
 
 let bookID = myLibrary.length - 1;
-function Book(title, pages) {
+function Book(title, pages, author) {
   this.id = bookID;
   bookID += 1;
 
   this.title = title;
   this.pages = pages;
+  this.author = author;
   this.read = false;
 }
 
@@ -31,10 +32,11 @@ function readBook(readButton, book) {
 function addBookToLibrary() {
   const titleInput = document.querySelector('#title');
   const pageInput = document.querySelector('#pages');
+  const authorInput = document.querySelector('#author');
   const buttonInput = document.querySelector('.button');
 
   buttonInput.addEventListener('click', () => {
-    const book = new Book(titleInput.value, pageInput.value);
+    const book = new Book(titleInput.value, pageInput.value, authorInput.value);
     myLibrary.push(book);
     
     const bookContainer = document.createElement('div');
@@ -47,10 +49,14 @@ function addBookToLibrary() {
   
     const bookPages = document.createElement('p');
     bookPages.textContent = book.pages;
+
+    const bookAuthor = document.createElement('p');
+    bookAuthor.textContent = book.author;
   
     bookContainer.appendChild(bookTitle);
     bookContainer.appendChild(bookPages);
-  
+    bookContainer.appendChild(bookAuthor);
+
     const deleteButton = document.createElement('button');
     deleteButton.addEventListener('click', () => { deleteBook(bookContainer, book); });
     deleteButton.textContent = 'Delete';
@@ -94,6 +100,10 @@ function addBookForm() {
   pageInput.setAttribute('type', 'number');
   pageInput.setAttribute('name', 'pages');
   pageInput.setAttribute('id', 'pages');
+  const authorInput = document.createElement('INPUT');
+  authorInput.setAttribute('type', 'text');
+  authorInput.setAttribute('name', 'author');
+  authorInput.setAttribute('id', 'author');
 
   const submitInput = document.createElement('INPUT');
   submitInput.setAttribute('type', 'button');
@@ -101,6 +111,7 @@ function addBookForm() {
   submitInput.setAttribute('value', 'Add Book');
   form.appendChild(titleInput);
   form.appendChild(pageInput);
+  form.appendChild(authorInput);
   form.appendChild(submitInput);
   formContainer.appendChild(form);
 }
