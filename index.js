@@ -38,12 +38,12 @@ function addBookToLibrary() {
   buttonInput.addEventListener('click', () => {
     const book = new Book(titleInput.value, pageInput.value, authorInput.value);
     myLibrary.push(book);
-    
+
     const bookContainer = document.createElement('div');
     bookContainer.setAttribute('class', 'bookContainer');
     bookContainer.setAttribute('id', '');
     bookShelf.appendChild(bookContainer);
-  
+
     const bookTitle = document.createElement('p');
     bookTitle.textContent = book.title;
   
@@ -52,7 +52,7 @@ function addBookToLibrary() {
 
     const bookAuthor = document.createElement('p');
     bookAuthor.textContent = book.author;
-  
+
     bookContainer.appendChild(bookTitle);
     bookContainer.appendChild(bookPages);
     bookContainer.appendChild(bookAuthor);
@@ -61,7 +61,7 @@ function addBookToLibrary() {
     deleteButton.addEventListener('click', () => { deleteBook(bookContainer, book); });
     deleteButton.textContent = 'Delete';
     bookContainer.appendChild(deleteButton);
-  
+
     const readButton = document.createElement('button');
     book.read = true;
     readBook(readButton, book);
