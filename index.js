@@ -1,8 +1,7 @@
-let myLibrary = [];
+const myLibrary = [];
 
-let mainContainer = document.querySelector('#mainContainer');
-let form_container = document.getElementById('form_container');
-let book_shelf = document.getElementById('book_shelf');
+const formContainer = document.getElementById('form_container');
+const bookShelf = document.getElementById('book_shelf');
 
 let bookID = myLibrary.length - 1;
 function Book(title, pages) {
@@ -28,7 +27,7 @@ function add_book(book) {
   let bookContainer = document.createElement('div');
   bookContainer.setAttribute('class', 'bookContainer');
   bookContainer.setAttribute('id', '')
-  book_shelf.appendChild(bookContainer);
+  bookShelf.appendChild(bookContainer);
 
   let bookTitle = document.createElement('p');
   bookTitle.textContent = book.title;
@@ -64,7 +63,7 @@ function createBookButton() {
   add_button.setAttribute('class', 'create-book-btn');
   add_button.addEventListener('click', displayForm, false);
 
-  form_container.appendChild(add_button);
+  formContainer.appendChild(add_button);
 }
 
 function displayForm() {
@@ -100,7 +99,7 @@ function addBookForm() {
   form.appendChild(page_input);
   form.appendChild(submit_input);
 
-  form_container.appendChild(form);
+  formContainer.appendChild(form);
 }
 
 function deleteBook(bookContainer, book) {
