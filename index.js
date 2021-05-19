@@ -13,6 +13,35 @@ function Book(title, pages) {
   this.read = false;
 }
 
+function add_book(book) {
+
+  let bookContainer = document.createElement('div');
+  bookContainer.setAttribute('class', 'bookContainer');
+  bookContainer.setAttribute('id', '')
+  bookShelf.appendChild(bookContainer);
+
+  const bookTitle = document.createElement('p');
+  bookTitle.textContent = book.title;
+
+  const bookPages = document.createElement('p');
+  bookPages.textContent = book.pages;
+
+  bookContainer.appendChild(bookTitle);
+  bookContainer.appendChild(bookPages);
+
+  const deleteButton = document.createElement('button');
+  deleteButton.addEventListener('click', function() {deleteBook(bookContainer, book)})
+  deleteButton.textContent = 'Delete';
+  bookContainer.appendChild(deleteButton);
+
+  let read_button = document.createElement('button');
+  book.read = true;
+  readBook(read_button, book);
+  read_button.addEventListener('click', function() {readBook(read_button, book)})
+  read_button.textContent = 'Read';
+  bookContainer.appendChild(read_button);
+}
+
 function addBookToLibrary() {
   
   const titleInput = document.querySelector('#title');
@@ -26,49 +55,13 @@ function addBookToLibrary() {
   });
 }
 
-function add_book(book) {
-
-  let bookContainer = document.createElement('div');
-  bookContainer.setAttribute('class', 'bookContainer');
-  bookContainer.setAttribute('id', '')
-  bookShelf.appendChild(bookContainer);
-
-  let bookTitle = document.createElement('p');
-  bookTitle.textContent = book.title;
-
-  let bookPages = document.createElement('p');
-  bookPages.textContent = book.pages;
-
-  bookContainer.appendChild(bookTitle);
-  bookContainer.appendChild(bookPages);
-
-  let delete_button = document.createElement('button');
-  delete_button.addEventListener('click', function() {deleteBook(bookContainer, book)})
-  delete_button.textContent = 'Delete';
-  bookContainer.appendChild(delete_button);
-
-  let read_button = document.createElement('button');
-  book.read = true;
-  readBook(read_button, book);
-  read_button.addEventListener('click', function() {readBook(read_button, book)})
-  read_button.textContent = 'Read';
-  bookContainer.appendChild(read_button);
-}
-
-function display_initial_books(array) {
+function displayInitialBooks(array) {
 
   for (let a=0; a < array.length; a++) {
     add_book(array[a])
   }
 }
 
-function createBookButton() {
-  let add_button = document.getElementById('display_form');
-  add_button.setAttribute('class', 'create-book-btn');
-  add_button.addEventListener('click', displayForm, false);
-
-  formContainer.appendChild(add_button);
-}
 
 function displayForm() {
   let form = document.querySelector('#book_form');
@@ -78,6 +71,14 @@ function displayForm() {
   } else {
     form.style.display = 'none';
   }
+}
+
+function createBookButton() {
+  const addButton = document.getElementById('display_form');
+  addButton.setAttribute('class', 'create-book-btn');
+  addButton.addEventListener('click', displayForm, false);
+
+  formContainer.appendChild(addButton);
 }
 
 function addBookForm() {
@@ -127,4 +128,4 @@ function readBook(read_button, book) {
 createBookButton();
 addBookForm();
 addBookToLibrary();
-display_initial_books(myLibrary);
+displayInitialBooks(myLibrary);
