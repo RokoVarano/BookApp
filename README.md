@@ -33,11 +33,11 @@ Click 'Read' to alternate between Red and Green colors, representing the 'read' 
 - Twitter: [@Rodrigo](https://twitter.com/RodrigoIbacet11)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/rodrigo-ibaceta-a8657611a/)
 
-👤 **Author2**
+👤 **Emanuel Okello**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [oxenprogrammer](https://github.com/oxenprogrammer)
+- Twitter: [@ox_emmy](https://twitter.com/ox_emmy)
+- LinkedIn: [Emanuel Okello](https://www.linkedin.com/in/emanuel-okello/)
 
 ## 🤝 Contributing
 
