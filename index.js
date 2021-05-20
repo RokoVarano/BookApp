@@ -1,22 +1,29 @@
-const myLibrary = [];
-
 const formContainer = document.getElementById('form_container');
 const bookShelf = document.getElementById('book_shelf');
+class Book {
 
-let bookID = myLibrary.length - 1;
-function Book(title, pages, author) {
-  this.id = bookID;
-  bookID += 1;
+  static myLibrary = []
+  static bookID = 0
 
-  this.title = title;
-  this.pages = pages;
-  this.author = author;
-  this.read = false;
+  constructor(title, pages, author, read = false) {
+    this.id = Book.bookID;
+    this.title = title;
+    this.pages = pages;
+    this.author = author;
+    this.read = read;
+
+    Book.myLibrary.push(this);
+    Book.bookID = Book.bookID += 1;
+  }
+
+  remove() {
+    Book.myLibrary.splice(this.id, 1);
+  }
 }
 
 function deleteBook(bookContainer, book) {
   bookContainer.parentNode.removeChild(bookContainer);
-  myLibrary.splice(book.id, 1);
+  book.remove();
 }
 
 function readBook(readButton, book) {
@@ -37,7 +44,6 @@ function addBookToLibrary() {
 
   buttonInput.addEventListener('click', () => {
     const book = new Book(titleInput.value, pageInput.value, authorInput.value);
-    myLibrary.push(book);
 
     const bookContainer = document.createElement('div');
     bookContainer.setAttribute('class', 'bookContainer');
