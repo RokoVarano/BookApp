@@ -8,7 +8,7 @@ function Book(title, pages, author, read = false) {
     title,
     pages,
     author,
-    read
+    read,
   };
 }
 
