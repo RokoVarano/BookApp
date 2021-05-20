@@ -4,9 +4,11 @@ const formContainer = document.getElementById('form_container');
 const bookShelf = document.getElementById('book_shelf');
 
 let bookID = myLibrary.length - 1;
-function Book(id = bookID, title, pages, author, read=false) {
-  bookID++;
-  return {id, title, pages, author, read};
+function Book(id = bookID, title, pages, author, read = false) {
+  bookID = bookID + 1;
+  return {
+    id, title, pages, author, read
+  };
 }
 
 function deleteBook(bookContainer, book) {
