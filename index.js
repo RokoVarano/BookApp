@@ -3,8 +3,13 @@ const myLibrary = [];
 const formContainer = document.getElementById('form_container');
 const bookShelf = document.getElementById('book_shelf');
 
-function Book(title, pages, author, read=false) {
-  return {title, pages, author, read};
+function Book(title, pages, author, read = false) {
+  return {
+    title,
+    pages,
+    author,
+    read
+  };
 }
 
 function deleteBook(bookContainer, book) {
