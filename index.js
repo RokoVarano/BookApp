@@ -2,9 +2,9 @@ const myLibrary = [];
 
 const formContainer = document.getElementById('form_container');
 const bookShelf = document.getElementById('book_shelf');
-
-function Book(title, pages, author, read = false) {
+function Book(id, title, pages, author, read = false) {
   return {
+    id,
     title,
     pages,
     author,
@@ -34,7 +34,7 @@ function addBookToLibrary() {
   const buttonInput = document.querySelector('.button');
 
   buttonInput.addEventListener('click', () => {
-    const book = Book(titleInput.value, pageInput.value, authorInput.value);
+    const book = Book(myLibrary.length + 1, titleInput.value, pageInput.value, authorInput.value);
     myLibrary.push(book);
 
     const bookContainer = document.createElement('div');
