@@ -5,9 +5,9 @@ const bookShelf = document.getElementById('book_shelf');
 
 let bookID = myLibrary.length - 1;
 function Book(id = bookID, title, pages, author, read = false) {
-  bookID = bookID + 1;
+  bookID += 1;
   return {
-    id, title, pages, author, read
+    id, title, pages, author, read,
   };
 }
 
