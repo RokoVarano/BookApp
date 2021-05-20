@@ -4,14 +4,10 @@ const formContainer = document.getElementById('form_container');
 const bookShelf = document.getElementById('book_shelf');
 
 let bookID = myLibrary.length - 1;
-function Book(title, pages, author) {
-  this.id = bookID;
-  bookID += 1;
-
-  this.title = title;
-  this.pages = pages;
-  this.author = author;
-  this.read = false;
+function Book(title, pages, author, read=false) {
+  const id = book.id;
+  bookID++;
+  return {id, title, pages, author, read};
 }
 
 function deleteBook(bookContainer, book) {
@@ -36,7 +32,7 @@ function addBookToLibrary() {
   const buttonInput = document.querySelector('.button');
 
   buttonInput.addEventListener('click', () => {
-    const book = new Book(titleInput.value, pageInput.value, authorInput.value);
+    const book = Book(titleInput.value, pageInput.value, authorInput.value);
     myLibrary.push(book);
 
     const bookContainer = document.createElement('div');
