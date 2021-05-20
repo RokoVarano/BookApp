@@ -4,8 +4,7 @@ const formContainer = document.getElementById('form_container');
 const bookShelf = document.getElementById('book_shelf');
 
 let bookID = myLibrary.length - 1;
-function Book(title, pages, author, read=false) {
-  const id = book.id;
+function Book(id = bookID, title, pages, author, read=false) {
   bookID++;
   return {id, title, pages, author, read};
 }
