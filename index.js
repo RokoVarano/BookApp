@@ -13,6 +13,7 @@ class Book {
     this.read = read;
 
     Book.myLibrary.push(this);
+    Book.bookID = Book.bookID += 1;
   }
 
   remove() {
